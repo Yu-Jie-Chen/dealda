@@ -29,7 +29,7 @@ echo "psrsh scripts ready."
 
 # ===================Define===================
 data_dir="/home/data/C1"
-dates=("20230904" "20231009" "20231105" "20231211" "20231223" "20240111" "20240207" "20240901" "20240906" "20240908" "20240913" "20240929")
+dates=("20230904" "20231029")
 
 PSRname="C1"
 parfile="${script_dir}/J2338+4818.par"  
@@ -53,7 +53,7 @@ process_one_day () {
     cd "${workdir}" || { echo "Cannot enter ${workdir}"; exit 1; }
 
     # If completed, skip
-    if [ -f "${PSRname}_${day}_singlepulse.txt" ]; then
+    if [ -f "${PSRname}_${day}_total.add" ]; then
         echo "[$day] Already finished, skipping."
         return
     fi
